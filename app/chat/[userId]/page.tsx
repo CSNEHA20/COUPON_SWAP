@@ -138,7 +138,7 @@ export default function ChatPage() {
                         No messages yet. Say hello!
                     </div>
                 ) : (
-                    messages.map((msg) => {
+                    messages.map((msg: any) => {
                         const isMe = msg.sender_id === currentUser.id
                         return (
                             <div key={msg.id} className={`flex ${isMe ? 'justify-end' : 'justify-start'}`}>

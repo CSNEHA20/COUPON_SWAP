@@ -107,7 +107,7 @@ export default function SalesPage() {
 
             if (error) throw error
 
-            setCoupons(prev => prev.map(c => c.id === editingCoupon.id ? editingCoupon : c))
+            setCoupons(prev => prev.map((c: any) => c.id === editingCoupon.id ? editingCoupon : c))
             setEditingCoupon(null)
             alert('Listing updated successfully!')
         } catch (err: any) {
@@ -215,7 +215,7 @@ export default function SalesPage() {
                             <EmptyState icon={<Package className="h-10 w-10 text-gray-500" />} text="No active listings." subtext="Got unused coupons? List them now!" href="/sell" btnText="Start Selling" />
                         ) : (
                             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                                {activeListings.map(coupon => (
+                                {activeListings.map((coupon: any) => (
                                     <SellerCouponCard
                                         key={coupon.id}
                                         coupon={coupon}
@@ -232,7 +232,7 @@ export default function SalesPage() {
                             <EmptyState icon={<CheckCircle className="h-10 w-10 text-gray-500" />} text="No sales history yet." subtext="Wait for buyers to purchase your items!" href="/profile" btnText="Back to Dashboard" />
                         ) : (
                             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                                {soldListings.map(coupon => (
+                                {soldListings.map((coupon: any) => (
                                     <SellerCouponCard key={coupon.id} coupon={coupon} isSold={true} />
                                 ))}
                             </div>
@@ -287,7 +287,7 @@ export default function SalesPage() {
                                         onChange={e => setEditingCoupon({ ...editingCoupon, category: e.target.value })}
                                         className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm focus:border-purple-500/50 outline-none transition-all appearance-none"
                                     >
-                                        {['Food', 'Fashion', 'Travel', 'Tech', 'Work', 'Fun', 'Health', 'Other'].map(cat => (
+                                        {['Food', 'Fashion', 'Travel', 'Tech', 'Work', 'Fun', 'Health', 'Other'].map((cat: string) => (
                                             <option key={cat} value={cat} className="bg-slate-900 text-white">{cat}</option>
                                         ))}
                                     </select>

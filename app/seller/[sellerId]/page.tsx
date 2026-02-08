@@ -92,7 +92,7 @@ export default function SellerProfilePage() {
     }, [sellerId, page, ratingFilter])
 
     // Calculate rating stats for the component
-    const ratingCounts = reviews.reduce((acc: any, rev) => {
+    const ratingCounts = reviews.reduce((acc: any, rev: any) => {
         acc[rev.rating] = (acc[rev.rating] || 0) + 1
         return acc
     }, {})
@@ -212,7 +212,7 @@ export default function SellerProfilePage() {
                                     <p className="text-gray-500 italic">No reviews found for this criteria.</p>
                                 </div>
                             ) : (
-                                reviews.map((review) => (
+                                reviews.map((review: any) => (
                                     <div key={review.id} className="bg-slate-900 border border-white/10 rounded-3xl p-6 space-y-4">
                                         <div className="flex justify-between items-start">
                                             <div className="flex gap-1 text-yellow-500">
@@ -273,7 +273,7 @@ export default function SellerProfilePage() {
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {listings.map((coupon) => (
+                        {listings.map((coupon: any) => (
                             <CouponCard key={coupon.id} coupon={coupon} />
                         ))}
                     </div>

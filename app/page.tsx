@@ -225,7 +225,7 @@ export default function Home() {
               onChange={(e) => setSortBy(e.target.value)}
               className="md:w-48 bg-white/5 border border-white/10 rounded-2xl px-4 py-3.5 text-sm font-bold text-gray-300 outline-none focus:border-purple-500/50 transition-all appearance-none cursor-pointer hover:bg-white/10"
             >
-              {SORT_OPTIONS.map(opt => (
+              {SORT_OPTIONS.map((opt: any) => (
                 <option key={opt.id} value={opt.id} className="bg-slate-900 text-white">{opt.label}</option>
               ))}
             </select>
@@ -264,7 +264,7 @@ export default function Home() {
                   <DollarSign className="w-3 h-3" /> Price Range
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  {PRICE_RANGES.map(range => (
+                  {PRICE_RANGES.map((range: any) => (
                     <button
                       key={range.id}
                       onClick={() => setPriceRange(range.id)}

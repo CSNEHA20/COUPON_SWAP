@@ -128,7 +128,7 @@ export default function TransactionsPage() {
                                         </tr>
                                     </thead>
                                     <tbody className="divide-y divide-white/5">
-                                        {transactions.map((txn) => {
+                                        {transactions.map((txn: any) => {
                                             const isSale = txn.seller_id === user?.id
                                             return (
                                                 <tr key={txn.id} className="hover:bg-white/[0.02] transition-colors group">

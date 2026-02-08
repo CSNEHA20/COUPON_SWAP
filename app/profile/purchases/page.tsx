@@ -121,7 +121,7 @@ export default function PurchasesPage() {
                     </div>
                 ) : (
                     <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                        {purchases.map((coupon) => {
+                        {purchases.map((coupon: any) => {
                             const expired = isExpired(coupon.expiry_date);
                             const cardBorderClass = expired ? 'border-red-500/20 grayscale-[0.5]' : 'border-white/10 hover:border-purple-500/30';
 
