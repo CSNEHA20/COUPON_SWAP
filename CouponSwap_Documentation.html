@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CouponSwap - Project Project Documentation</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 40px auto; padding: 20px; background: #f9f9f9; }
+        .document-container { background: white; padding: 60px; border-radius: 8px; shadow: 0 4px 6px rgba(0,0,0,0.1); border: 1px solid #ddd; }
+        h1 { color: #4f46e5; border-bottom: 3px solid #4f46e5; padding-bottom: 10px; font-size: 32px; }
+        h2 { color: #1e293b; border-bottom: 1px solid #e2e8f0; padding-bottom: 5px; margin-top: 40px; }
+        h3 { color: #6366f1; margin-top: 25px; }
+        code { background: #f1f5f9; padding: 2px 6px; border-radius: 4px; font-family: 'Courier New', Courier, monospace; font-size: 0.9em; }
+        pre { background: #1e293b; color: #f8fafc; padding: 20px; border-radius: 8px; overflow-x: auto; }
+        .tech-badge { display: inline-block; background: #e0e7ff; color: #4338ca; padding: 4px 12px; border-radius: 16px; font-size: 13px; font-weight: bold; margin-right: 5px; margin-bottom: 5px; }
+        .feature-card { border-left: 4px solid #6366f1; padding-left: 20px; margin: 20px 0; }
+        table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+        th, td { border: 1px solid #e2e8f0; padding: 12px; text-align: left; }
+        th { background: #f8fafc; font-weight: bold; }
+        .footer { margin-top: 60px; text-align: center; color: #94a3b8; font-size: 12px; }
+        @media print {
+            body { background: white; margin: 0; }
+            .document-container { border: none; shadow: none; padding: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="document-container">
+        <h1>CouponSwap Project Documentation</h1>
+        <p><strong>Version:</strong> 1.0.0 (Production)</p>
+        <p><strong>Prepared for:</strong> Project Handoff</p>
+        <p><strong>Description:</strong> A secure, full-stack marketplace for digital coupon trading.</p>
+
+        <h2>1. Technology Stack</h2>
+        <div style="margin: 20px 0;">
+            <span class="tech-badge">Next.js 14 (App Router)</span>
+            <span class="tech-badge">TypeScript</span>
+            <span class="tech-badge">Supabase (BaaS)</span>
+            <span class="tech-badge">PostgreSQL</span>
+            <span class="tech-badge">Tailwind CSS</span>
+            <span class="tech-badge">Lucide Icons</span>
+            <span class="tech-badge">Vercel (Deployment)</span>
+        </div>
+
+        <h2>2. Detailed Page Breakdown</h2>
+        
+        <div class="feature-card">
+            <h3>🛒 Marketplace Hub</h3>
+            <p>The core of the application where exploration happens. Features include:</p>
+            <ul>
+                <li><strong>Smart Search:</strong> Fuzzy filtering across titles and descriptions.</li>
+                <li><strong>Category Navigation:</strong> Dedicated filters for Food, Fashion, Travel, and more.</li>
+                <li><strong>Dynamic Sorting:</strong> Adaptive ordering by listing date and price.</li>
+                <li><strong>Glassmorphism UI:</strong> High-end visual design with real-time state updates.</li>
+            </ul>
+        </div>
+
+        <div class="feature-card">
+            <h3>📈 User Profile & Statistics</h3>
+            <p>Comprehensive dashboard for tracking user performance:</p>
+            <ul>
+                <li><strong>Wallet Integration:</strong> Real-time credit balance display with "Buy More" functionality.</li>
+                <li><strong>Aggregated Stats:</strong> Auto-calculating fields for "Total Earnings" and "Total Spent".</li>
+                <li><strong>Activity Logs:</strong> Chronological transaction history with directional icons.</li>
+            </ul>
+        </div>
+
+        <div class="feature-card">
+            <h3>🔒 Secure Purchasing</h3>
+            <p>Robust ordering system with multiple fail-safes:</p>
+            <ul>
+                <li><strong>Admin Client:</strong> Uses Service Role keys on the server to ensure credit transfers are never blocked.</li>
+                <li><strong>Atomic Logic:</strong> Ensures money is only moved if the coupon is successfully linked to the buyer.</li>
+                <li><strong>Automated Feedback:</strong> Ratings and reviews are prompted immediately after purchase visibility.</li>
+            </ul>
+        </div>
+
+        <h2>3. Database & Security Model</h2>
+        <h3>Table Architecture</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Table Name</th>
+                    <th>Purpose</th>
+                    <th>Key Features</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>profiles</code></td>
+                    <td>User Metadata</td>
+                    <td>Auto-created via DB Trigger on Auth signup.</td>
+                </tr>
+                <tr>
+                    <td><code>coupons</code></td>
+                    <td>Marketplace Items</td>
+                    <td>Locked with RLS – codes hidden until purchase.</td>
+                </tr>
+                <tr>
+                    <td><code>transactions</code></td>
+                    <td>Finacial Ledger</td>
+                    <td>Immutable record of every credit transfer.</td>
+                </tr>
+                <tr>
+                    <td><code>reviews</code></td>
+                    <td>Seller Ratings</td>
+                    <td>Enforces one review per purchase rule.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Security Implementation</h3>
+        <p>The project employs a <strong>Defense-in-Depth</strong> strategy:</p>
+        <ol>
+            <li><strong>Row-Level Security (RLS):</strong> Policies prevent cross-account data leaking.</li>
+            <li><strong>Environment Isolation:</strong> Keys are never hardcoded, preventing repository leaks.</li>
+            <li><strong>Server-Side Boundaries:</strong> All high-privilege operations occur behind Server Actions.</li>
+        </ol>
+
+        <h2>4. Maintenance & Support</h2>
+        <p>To scale this project for the future:</p>
+        <ul>
+            <li><strong>Scaling:</strong> The Supabase backend can handle up to millions of rows automatically.</li>
+            <li><strong>Updates:</strong> Documentation is provided in Markdown (README.md) for future developers.</li>
+            <li><strong>Customization:</strong> Tailwind CSS tokens are centralized for easy brand styling changes.</li>
+        </ul>
+
+        <div class="footer">
+            <p© 2026 CouponSwap Project - All Rights Reserved</p>
+            <p>Generated by Antigravity AI Engineering</p>
+        </div>
+    </div>
+</body>
+</html>
