@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, Suspense } from 'react'
 import { supabase } from '@/lib/supabase'
 import CouponCard from '@/components/CouponCard'
 import { Coupon } from '@/types'
@@ -56,7 +56,7 @@ const PRICE_RANGES = [
   { id: '100plus', label: '100+ Credits', min: 100, max: null },
 ]
 
-export default function Home() {
+function HomeContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
 
@@ -426,5 +426,17 @@ export default function Home() {
         )}
       </div>
     </div>
+  )
+}
+
+export default function Home() {
+  return (
+    <Suspense fallback={
+      <div className="flex h-screen justify-center items-center bg-slate-950">
+        <Loader2 className="animate-spin text-indigo-600 h-10 w-10" />
+      </div>
+    }>
+      <HomeContent />
+    </Suspense>
   )
 }
