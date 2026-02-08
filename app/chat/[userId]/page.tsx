@@ -59,7 +59,7 @@ export default function ChatPage() {
                         schema: 'public',
                         table: 'messages',
                     },
-                    (payload) => {
+                    (payload: any) => {
                         const newMsg = payload.new as Message
                         // Check if this message belongs to this conversation
                         if (
@@ -143,8 +143,8 @@ export default function ChatPage() {
                         return (
                             <div key={msg.id} className={`flex ${isMe ? 'justify-end' : 'justify-start'}`}>
                                 <div className={`max-w-[75%] rounded-2xl px-4 py-2 shadow-sm ${isMe
-                                        ? 'bg-indigo-600 text-white rounded-br-none'
-                                        : 'bg-white text-gray-800 border border-gray-100 rounded-bl-none'
+                                    ? 'bg-indigo-600 text-white rounded-br-none'
+                                    : 'bg-white text-gray-800 border border-gray-100 rounded-bl-none'
                                     }`}>
                                     <p className="text-sm">{msg.content}</p>
                                     <p className={`text-[10px] mt-1 text-right ${isMe ? 'text-indigo-200' : 'text-gray-400'}`}>
