@@ -84,7 +84,7 @@ export default function ProfilePage() {
                     .select('amount_credits')
                     .eq('seller_id', user.id)
 
-                const earnings = salesTransactions?.reduce((sum, txn) => sum + txn.amount_credits, 0) || 0
+                const earnings = salesTransactions?.reduce((sum: number, txn: any) => sum + txn.amount_credits, 0) || 0
 
                 // Spent (sum from transactions)
                 const { data: purchaseTransactions } = await supabase
@@ -92,7 +92,7 @@ export default function ProfilePage() {
                     .select('amount_credits')
                     .eq('buyer_id', user.id)
 
-                const spent = purchaseTransactions?.reduce((sum, txn) => sum + txn.amount_credits, 0) || 0
+                const spent = purchaseTransactions?.reduce((sum: number, txn: any) => sum + txn.amount_credits, 0) || 0
 
                 setStats({
                     earnings,

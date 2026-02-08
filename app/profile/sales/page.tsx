@@ -120,7 +120,7 @@ export default function SalesPage() {
     const activeListings = coupons.filter(c => !c.is_sold)
     const soldListings = coupons.filter(c => c.is_sold)
 
-    const totalEarnings = soldListings.reduce((sum, c) => sum + (c.price_credits || 0), 0)
+    const totalEarnings = soldListings.reduce((sum: number, c: any) => sum + (c.price_credits || 0), 0)
 
     if (loading) {
         return (
