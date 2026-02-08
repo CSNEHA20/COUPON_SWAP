@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { supabaseAdmin } from '@/lib/supabaseAdmin';
 import { sendExpiryReminder } from '@/lib/emailService';
+export const dynamic = 'force-dynamic';
 
 export async function GET(request: NextRequest) {
     // 1. Security Check: Verify this is being called by a cron service or authorized source
