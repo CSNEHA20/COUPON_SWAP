@@ -72,7 +72,10 @@ function HomeContent() {
 
   const [coupons, setCoupons] = useState<Coupon[]>([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
   const [showAdvanced, setShowAdvanced] = useState(false)
+
+  const isConfigMissing = !process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 
   // Sync with URL Params
   useEffect(() => {
@@ -138,9 +141,11 @@ function HomeContent() {
         console.error('Supabase error details:', JSON.stringify(error, null, 2))
         throw error
       }
+      setError(null)
       setCoupons(data || [])
     } catch (error: any) {
       console.error('Error fetching coupons:', error.message || error)
+      setError(error.message || 'Failed to connect to the marketplace. Please check your connection.')
     } finally {
       setLoading(false)
     }
@@ -167,8 +172,32 @@ function HomeContent() {
     showExpiringSoon
   ].filter(Boolean).length
 
+  if (isConfigMissing) {
+    return (
+      <div className="flex h-screen flex-col items-center justify-center bg-slate-950 p-4 text-center">
+        <div className="bg-red-500/10 border border-red-500/20 p-8 rounded-[32px] max-w-md shadow-2xl">
+          <div className="bg-red-500/20 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <X className="text-red-500 w-8 h-8" />
+          </div>
+          <h2 className="text-2xl font-black text-white mb-2">Configuration Missing</h2>
+          <p className="text-gray-400 mb-6">The Supabase environment variables are missing in Vercel. Please add them to your project settings.</p>
+          <div className="text-left bg-black/40 p-4 rounded-xl font-mono text-xs text-red-300 border border-white/5">
+            1. NEXT_PUBLIC_SUPABASE_URL<br />
+            2. NEXT_PUBLIC_SUPABASE_ANON_KEY
+          </div>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+      {error && (
+        <div className="bg-red-500/10 border border-red-500/20 p-4 rounded-2xl text-red-400 text-sm flex items-center gap-3 animate-in slide-in-from-top duration-300">
+          <X className="w-4 h-4 shrink-0" />
+          {error}
+        </div>
+      )}
       {/* Hero Section */}
       <div className="text-center relative py-10">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-indigo-500/10 rounded-full blur-[100px] -z-10 pointer-events-none"></div>
