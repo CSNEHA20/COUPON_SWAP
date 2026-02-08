@@ -1,29 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CouponSwap - Project Project Documentation</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 40px auto; padding: 20px; background: #f9f9f9; }
-        .document-container { background: white; padding: 60px; border-radius: 8px; shadow: 0 4px 6px rgba(0,0,0,0.1); border: 1px solid #ddd; }
-        h1 { color: #4f46e5; border-bottom: 3px solid #4f46e5; padding-bottom: 10px; font-size: 32px; }
-        h2 { color: #1e293b; border-bottom: 1px solid #e2e8f0; padding-bottom: 5px; margin-top: 40px; }
-        h3 { color: #6366f1; margin-top: 25px; }
-        code { background: #f1f5f9; padding: 2px 6px; border-radius: 4px; font-family: 'Courier New', Courier, monospace; font-size: 0.9em; }
-        pre { background: #1e293b; color: #f8fafc; padding: 20px; border-radius: 8px; overflow-x: auto; }
-        .tech-badge { display: inline-block; background: #e0e7ff; color: #4338ca; padding: 4px 12px; border-radius: 16px; font-size: 13px; font-weight: bold; margin-right: 5px; margin-bottom: 5px; }
-        .feature-card { border-left: 4px solid #6366f1; padding-left: 20px; margin: 20px 0; }
-        table { border-collapse: collapse; width: 100%; margin: 20px 0; }
-        th, td { border: 1px solid #e2e8f0; padding: 12px; text-align: left; }
-        th { background: #f8fafc; font-weight: bold; }
-        .footer { margin-top: 60px; text-align: center; color: #94a3b8; font-size: 12px; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #f9f9f9;
+        }
+
+        .document-container {
+            background: white;
+            padding: 60px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd;
+        }
+
+        h1 {
+            color: #4f46e5;
+            border-bottom: 3px solid #4f46e5;
+            padding-bottom: 10px;
+            font-size: 32px;
+        }
+
+        h2 {
+            color: #1e293b;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 5px;
+            margin-top: 40px;
+        }
+
+        h3 {
+            color: #6366f1;
+            margin-top: 25px;
+        }
+
+        code {
+            background: #f1f5f9;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background: #1e293b;
+            color: #f8fafc;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+
+        .tech-badge {
+            display: inline-block;
+            background: #e0e7ff;
+            color: #4338ca;
+            padding: 4px 12px;
+            border-radius: 16px;
+            font-size: 13px;
+            font-weight: bold;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+
+        .feature-card {
+            border-left: 4px solid #6366f1;
+            padding-left: 20px;
+            margin: 20px 0;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+        }
+
+        th,
+        td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #f8fafc;
+            font-weight: bold;
+        }
+
+        .footer {
+            margin-top: 60px;
+            text-align: center;
+            color: #94a3b8;
+            font-size: 12px;
+        }
+
         @media print {
-            body { background: white; margin: 0; }
-            .document-container { border: none; shadow: none; padding: 0; }
+            body {
+                background: white;
+                margin: 0;
+            }
+
+            .document-container {
+                border: none;
+                box-shadow: none;
+                padding: 0;
+            }
         }
     </style>
 </head>
+
 <body>
     <div class="document-container">
         <h1>CouponSwap Project Documentation</h1>
@@ -43,7 +136,7 @@
         </div>
 
         <h2>2. Detailed Page Breakdown</h2>
-        
+
         <div class="feature-card">
             <h3>🛒 Marketplace Hub</h3>
             <p>The core of the application where exploration happens. Features include:</p>
@@ -59,8 +152,10 @@
             <h3>📈 User Profile & Statistics</h3>
             <p>Comprehensive dashboard for tracking user performance:</p>
             <ul>
-                <li><strong>Wallet Integration:</strong> Real-time credit balance display with "Buy More" functionality.</li>
-                <li><strong>Aggregated Stats:</strong> Auto-calculating fields for "Total Earnings" and "Total Spent".</li>
+                <li><strong>Wallet Integration:</strong> Real-time credit balance display with "Buy More" functionality.
+                </li>
+                <li><strong>Aggregated Stats:</strong> Auto-calculating fields for "Total Earnings" and "Total Spent".
+                </li>
                 <li><strong>Activity Logs:</strong> Chronological transaction history with directional icons.</li>
             </ul>
         </div>
@@ -69,9 +164,12 @@
             <h3>🔒 Secure Purchasing</h3>
             <p>Robust ordering system with multiple fail-safes:</p>
             <ul>
-                <li><strong>Admin Client:</strong> Uses Service Role keys on the server to ensure credit transfers are never blocked.</li>
-                <li><strong>Atomic Logic:</strong> Ensures money is only moved if the coupon is successfully linked to the buyer.</li>
-                <li><strong>Automated Feedback:</strong> Ratings and reviews are prompted immediately after purchase visibility.</li>
+                <li><strong>Admin Client:</strong> Uses Service Role keys on the server to ensure credit transfers are
+                    never blocked.</li>
+                <li><strong>Atomic Logic:</strong> Ensures money is only moved if the coupon is successfully linked to
+                    the buyer.</li>
+                <li><strong>Automated Feedback:</strong> Ratings and reviews are prompted immediately after purchase
+                    visibility.</li>
             </ul>
         </div>
 
@@ -127,8 +225,9 @@
 
         <div class="footer">
             <p© 2026 CouponSwap Project - All Rights Reserved</p>
-            <p>Generated by Antigravity AI Engineering</p>
+                <p>Generated by Antigravity AI Engineering</p>
         </div>
     </div>
 </body>
+
 </html>
